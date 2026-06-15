@@ -48,7 +48,7 @@
   }
   @keyframes entraChars{0%{transform:translateY(90vh) scale(.4); opacity:0}100%{transform:translateY(0) scale(1); opacity:1}}
   @keyframes flutua{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-14px) rotate(1.5deg)}}
-  .bubble{
+  .bubble{ text-align:center; 
     position:relative; z-index:2; max-width:min(86vw,440px); text-align:center;
     background:var(--branco); color:var(--preto); border-radius:26px;
     padding:16px 24px; font-size:clamp(1.05rem,4.5vw,1.4rem); font-weight:600;
@@ -119,11 +119,11 @@
   .card .chamada{text-align:center; color:var(--vermelho); font-weight:600;
     text-transform:uppercase; letter-spacing:3px; font-size:.85rem}
   .nomes{
-    text-align:center; font-size:clamp(2.4rem,10vw,3.4rem); line-height:1.05; font-weight:800;
+    text-align:center; font-size:clamp(2.4rem,10vw,3.4rem); line-height:1.35; font-weight:800;
     background:linear-gradient(120deg,var(--vermelho),#ff5a4e,var(--vermelho));
-    -webkit-background-clip:text; background-clip:text; color:transparent; margin:8px 0 2px;
+    -webkit-background-clip:text; background-clip:text; color:transparent; margin:12px 0 6px;
   }
-  .idade{
+  .idade{ text-align:center; 
     width:max-content; margin:10px auto 4px; background:var(--preto); color:#fff;
     font-family:'Baloo 2',cursive; font-weight:800; font-size:1.3rem;
     padding:8px 26px; border-radius:999px; transform:rotate(-2deg);
@@ -135,15 +135,15 @@
   .divisor i:nth-child(2){background:var(--preto)} .divisor i:nth-child(4){background:var(--preto)}
 
   .info{display:flex; flex-direction:column; gap:14px}
-  .info-row{
+  .info-row{ text-align:center; justify-content:center; 
     display:flex; align-items:center; gap:14px; background:#faf4ea;
     border:2px dashed rgba(227,18,11,.4); border-radius:18px; padding:14px 16px;
   }
   .info-row .ico{font-size:1.6rem; width:44px; height:44px; min-width:44px; border-radius:50%;
     background:var(--vermelho); display:flex; align-items:center; justify-content:center;
     box-shadow:0 4px 10px rgba(227,18,11,.35)}
-  .info-row b{display:block; font-family:'Baloo 2',cursive; font-size:1.05rem}
-  .info-row small{color:#666; font-size:.92rem}
+  .info-row b{display:block; text-align:center; font-family:'Baloo 2',cursive; font-size:1.05rem}
+  .info-row small{color:#666; font-size:.92rem; display:block; text-align:center}
   .mapa-link{color:var(--vermelho); font-weight:600; text-decoration:none; font-size:.9rem}
 
   .contagem{margin:24px 0 4px; text-align:center}
@@ -205,7 +205,7 @@
     </div>
 
     <p class="chamada">♥ Dois corações pequeninos, uma grande comemoração! ♥</p>
-    <h1 class="nomes">Miguel<br/>&amp; Mariah</h1>
+    <h1 class="nomes">Miguel &amp; Mariah</h1>
     <div class="idade">🎂 <span>1</span> Aninho!</div>
 
     <div class="divisor"><i></i><i></i><i></i><i></i><i></i></div>
@@ -245,16 +245,6 @@
       <div class="campo">
         <label for="nome">Seu nome</label>
         <input id="nome" type="text" placeholder="Ex: Tia Ana" autocomplete="name" />
-      </div>
-      <div class="linha2">
-        <div class="campo">
-          <label for="adultos">Adultos</label>
-          <input id="adultos" type="number" min="1" max="20" value="1" />
-        </div>
-        <div class="campo">
-          <label for="criancas">Crianças</label>
-          <input id="criancas" type="number" min="0" max="20" value="0" />
-        </div>
       </div>
       <div class="campo">
         <label for="resposta">Você vai?</label>
@@ -309,7 +299,7 @@ criaConfetes(document.getElementById("intro"), 40);
 
 // ---------- Sequência da introdução ----------
 var falas = [
-  "Oi, amigos! 👋✨",
+  "Prepare-se para muita diversão! 🎉",
   "Eu sou o <strong>Mickey</strong>... e essa é a <strong>Minnie</strong>! 🎀",
   "Viemos fazer um convite MUITO especial... 🤫",
   "O <strong>Miguel</strong> e a <strong>Mariah</strong> vão fazer <strong>1 aninho</strong>! 🎂🎈",
@@ -379,20 +369,31 @@ document.getElementById("zapBtn").addEventListener("click", function(){
   var erro = document.getElementById("erroNome");
   if(!nome){ erro.style.display = "block"; return; }
   erro.style.display = "none";
-  var adultos = document.getElementById("adultos").value || "1";
-  var criancas = document.getElementById("criancas").value || "0";
   var vai = document.getElementById("resposta").value === "confirmo";
   var msg;
   if(vai){
-    msg = "Olá! 🎉 Aqui é *" + nome + "* e quero CONFIRMAR presença na festa de 1 aninho do Miguel e da Mariah! 🎂🐭\n\n" +
-          "👨‍👩‍👧 Adultos: " + adultos + "\n" +
-          "🧒 Crianças: " + criancas + "\n\n" +
-          "Até lá! ❤️🖤";
+    msg = "Olá! 🎉 Aqui é *" + nome + "* e quero CONFIRMAR presença na festa de 1 aninho do Miguel e da Mariah! 🎂🐭\n\nAté lá! ❤️🖤";
   } else {
-    msg = "Olá! Aqui é *" + nome + "*. Infelizmente não poderei ir à festa do Miguel e da Mariah 😢 " +
-          "Mas desejo um aniversário maravilhoso para os pequenos! ❤️🖤";
+    msg = "Olá! Aqui é *" + nome + "*. Infelizmente não poderei ir à festa do Miguel e da Mariah 😢 Mas desejo um aniversário maravilhoso para os pequenos! ❤️🖤";
   }
-  window.open("https://wa.me/" + DADOS.whatsapp + "?text=" + encodeURIComponent(msg), "_blank");
+
+  var url = "https://wa.me/" + DADOS.whatsapp + "?text=" + encodeURIComponent(msg);
+
+  /* Tenta abrir via link real (evita bloqueio de popup) */
+  var a = document.createElement("a");
+  a.href = url;
+  a.target = "_blank";
+  a.rel = "noopener noreferrer";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+
+  /* Fallback: copia mensagem + número para clipboard caso o link seja bloqueado */
+  setTimeout(function(){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(msg + "\n\nEnviar para: " + DADOS.whatsapp).catch(function(){});
+    }
+  }, 300);
 });
 </script>
 </body>
